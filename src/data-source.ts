@@ -1,6 +1,3 @@
-import "reflect-metadata"
-import {User} from "./entity/user.entity";
-import {Board} from "./entity/board.entity";
 
 // export const AppDataSource = new TypeOrmModule({
 //

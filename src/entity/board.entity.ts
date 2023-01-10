@@ -1,8 +1,7 @@
 import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
-import {Common} from "./common.entity";
 
 @Entity()
-export class Board extends Common{
+export class Board{
     @PrimaryGeneratedColumn()
     id: number;
 

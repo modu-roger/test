@@ -1,8 +1,14 @@
 import { Module } from '@nestjs/common';
-import { databaseProviders } from './database.providers';
+import {dataSource} from "./database.providers";
 
+const databaseProvider = {
+  provide: 'default',
+  useFactory: async () => {
+    return dataSource.initialize();
+  },
+}
 @Module({
-    providers: [...databaseProviders],
-    exports: [...databaseProviders],
+  providers: [databaseProvider],
+  exports: [databaseProvider],
 })
 export class DatabaseModule {}
