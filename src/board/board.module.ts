@@ -1,12 +1,14 @@
 import { Module } from '@nestjs/common';
 import { BoardController } from './board.controller';
 import { BoardService } from './board.service';
-import {DatabaseModule} from "../database/database.module";
-import {boardProviders} from "./board.providers";
+import { BoardRepository } from './board.repo';
+import { CustomTypeOrmModule } from '../common/custom-repository';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [CustomTypeOrmModule.forCustomRepository([BoardRepository])],
   controllers: [BoardController],
-  providers: [BoardService, ...boardProviders]
+  providers: [BoardService],
 })
 export class BoardModule {}
+
+// CustomTypeOrmModule.forCustomRepository([BoardRepository])
